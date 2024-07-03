@@ -1,0 +1,27 @@
+python run_pricing.py \
+  --folder_path "absolute path"\
+  --start_year_week '2022-45'\
+  --end_year_week '2022-45'\
+  --keep_longest 0.05 \
+  --p_val 0.15 \
+  --p_test 0.20 \
+  --forecast_horizon 24 \
+  --loss "RMSE" \
+  --d_model 64 \
+  --d_ff 128 \
+  --d_mixer 16\
+  --n_head 8 \
+  --N 2\
+  --dropout 0.0 \
+  --ablation_options 'shared_weighs'  'squeeze_static' 'squeeze_known_temporal_variables' 'auxiliary' 'channel_mixer' 'pe' \
+  --densest_partition 8 \
+  --time_features 1 \
+  --revin 1 \
+  --norm "BatchNorm" \
+  --activation "GeLU" \
+  --batch_size 128 \
+  --learning_rate  3e-4 \
+  --epochs 20 \
+  --patience 3 \
+  --resolution_set 1 2 3 4 6 8\
+
