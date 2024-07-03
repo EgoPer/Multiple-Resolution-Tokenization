@@ -1,6 +1,20 @@
 # Multiple-Resolution Tokenisation with an Application to Pricing
-This repository contains the modules that form the MRT and the some of the utility code used for piping data into it.
 
+This repository contains the modules that form the MRT and the some of the utility code used for piping data into it. This research project was the result of a research collabroation.
+
+## Abstract
+> We propose a transformer architecture for time series forecasting with a focus on time series
+tokenisation and apply it to a real-world prediction problem from the pricing domain. Our
+architecture aims to learn effective representations at many scales across all available data
+simultaneously. The model contains a number of novel modules: a differentiated form of
+time series patching which employs multiple resolutions, a multiple-resolution module for
+time-varying known variables, a mixer-based module for capturing cross-series information,
+and a novel output head with favourable scaling to account for the increased number of
+tokens. We present an application of this model to a real world prediction problem faced
+by the markdown team at a very large retailer. On the experiments conducted our model
+outperforms in-house models and the selected existing deep learning architectures.
+
+## Reproducibility
 Due to commercial sensitivity not everything can be shared. We provide the implementation of the model as it was done in experiments but omit some of the data pre-processing. We also can not publish the data. To reproduce the model on a new dataset after installing the requirements we suggest the following steps:
 
 1. The dataset should be processed such that each row contains all variables at that time step for a series. For static variables the values should be repeated. There should be a variable defining the groups that are normalised together (InputTypes.ID), a variable defining the position in time so that the dataset can be split (InputTypes.TIME), and target variables (InputTypes.TARGET). There needs to be a sequence id defining all rows which belong to a given series. For each series there needs to be a variable defining the ordering of each series so that it can be sorted (in our example this is *per_series_index* as defined by the quantisation code in *pricing_utils.py* and the sorting is already performed by the quantisation). 
